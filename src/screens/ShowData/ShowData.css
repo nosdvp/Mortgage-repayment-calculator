@@ -1,0 +1,115 @@
+.ShowData-wrapper{
+    width: 80%;
+    height: 500px;
+    /*border: 1px solid yellow;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.ShowData-wrapper-Inactive{
+    width: 80%;
+    height: 500px;
+    /*border: 1px solid yellow;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ShowData-title{
+    color: white;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.ShowData-text{
+    color: #8aa9bc;
+    width: 100%;
+    text-align: center;
+}
+
+.ShowData-text-afterRepay{
+    color: #8aa9bc;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.ShowData-resultWrapper{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-color: #d9db2d;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.ShowData-resultWrapper::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 245px;
+    background-color: #0e2431;
+    border-radius: 5px;
+}
+
+.ShowData-resultWrapper-indoorBlock{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 75%;
+    /*border: 1px solid red;*/
+    z-index: 1;
+    display: grid;
+    grid-template-rows: 1.15fr 1fr;
+}
+
+.ShowData-resultWrapper-indoorBlock-monthlyRep{
+    border-bottom: 1px solid #314754;
+    width: 100%;
+}
+
+.ShowData-resultWrapper-indoorBlock-monthlyRep-title,
+.ShowData-resultWrapper-indoorBlock-totalRep-title{
+    font-size: 18px;
+    color: #8ca7b8;
+    height: 30%;
+}
+
+.ShowData-resultWrapper-indoorBlock-monthlyRep-amount{
+    color: #d9db2d;
+    font-size: 45px;
+    font-weight: bold;
+    height: 70%;
+}
+
+.ShowData-resultWrapper-indoorBlock-totalRep{}
+
+.ShowData-resultWrapper-indoorBlock-totalRep-amount{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    height: 70%;
+    display: grid;
+    align-items: center;
+}
+
+@media(max-width:768px){
+    .ShowData-wrapper{
+        height: 450px;
+        justify-content: center;
+        width: 85%;
+    }
+}
+
+@media(max-width:425px){
+    .ShowData-wrapper{
+        width: 90%;
+    }
+}

@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import InputData from './screens/InputData/InputData.js'
+import ShowData from './screens/ShowData/ShowData.js'
 
 function App() {
+
+  const [changeForm, setChangeForm] = useState(false)
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <div className='wrapperBlock'>
+        <div className='inputData'>
+          <InputData
+            change={setChangeForm}
+          />
+        </div>
+        <div className='showData'>
+          <ShowData
+            form={changeForm}
+          />
+        </div>
+      </div>
     </div>
   );
 }
