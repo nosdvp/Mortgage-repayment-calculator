@@ -1,0 +1,233 @@
+.InputData-wrapper{
+    width: 85%;
+    /*border: 1px solid red;*/
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.InputData-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.InputData-header-title{
+    color: #152b3a;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.InputData-header-clearAll{
+    color: #7a8489;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.InputData-header-clearAll:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.InputData-header-clearAll:active{
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+/*блок ввода суммы*/
+.InputData-enterDataBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    /*border: 1px solid red;*/
+}
+
+.InputData-enterDataBlock-title,
+.InputData-addDataBlock-term-title,
+.InputData-addDataBlock-int-title{
+    color: #7a8489;
+    font-size: 18px;
+}
+
+.InputData-enterDataBlock-inputBlock{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #7a8489;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.InputData-enterDataBlock-inputBlock:focus-within,
+.InputData-addDataBlock-term-inputBlock:focus-within,
+.InputData-addDataBlock-int-inputBlock:focus-within{
+    border: 1px solid #dada32;
+}
+
+.InputData-enterDataBlock-inputBlock-iconAmount,
+.InputData-addDataBlock-term-inputBlock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 50px;
+    background-color: #e3f4fc;
+    font-size: 20px;
+    color: #657d88;
+    font-weight: bold;
+    border-radius: 4px 0 0px 4px;
+}
+
+.InputData-enterDataBlock-inputBlock:has(input:focus)
+.InputData-enterDataBlock-inputBlock-iconAmount {
+    background-color: #dada32;
+}
+
+.InputData-enterDataBlock-inputBlock-input{
+    text-align: start;
+    width: 88%;
+    height: 45px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #152b3a;
+}
+
+/*блок введения срока + процентов*/
+
+.InputData-addDataBlock{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid red;
+    width: 100%;
+    height: 90px;
+}
+
+.InputData-addDataBlock-term,
+.InputData-addDataBlock-int{
+    width: 47%;
+    height: 90px;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.InputData-addDataBlock-term-inputBlock,
+.InputData-addDataBlock-int-inputBlock{
+    width: 99%;
+    height: 50px;
+    border: 1px solid #7a8489;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.InputData-addDataBlock-term-inputBlock-input{
+    width: 70%;
+    height: 45px;
+    font-weight: bold;
+    color: #152b3a;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-radius: 5px 0 0 5px;
+}
+
+.InputData-addDataBlock-term-inputBlock-years{
+    width: 90px;
+    height: 50px;
+    background-color: #e3f4fc;
+    color: #657d88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.InputData-addDataBlock-term-inputBlock:has(input:focus)
+.InputData-addDataBlock-term-inputBlock-years{
+    background-color: #dada32;
+}
+
+.InputData-addDataBlock-int-inputBlock-input{
+    width: 75%;
+    height: 45px;
+    font-weight: bold;
+    color: #152b3a;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-radius: 5px 0 0 5px;
+}
+
+.InputData-addDataBlock-int-inputBlock-percent{
+    width: 50px;
+    height: 50px;
+    background-color: #e3f4fc;
+    color: #657d88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.InputData-addDataBlock-int-inputBlock:has(input:focus)
+.InputData-addDataBlock-int-inputBlock-percent{
+    background-color: #dada32;
+}
+
+/*Тип кредита*/
+.InputData-type{}
+
+/*Кнопка расчета*/
+.InputData-buttonBLock{
+    width: 70%;
+    height: 50px;
+    background-color: #dada32;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.InputData-buttonBLock:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.InputData-buttonBLock:active{
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+.InputData-buttonBLock-text{
+    font-size: 18px;
+    font-weight: bold;
+    color: #152b3a;
+}
