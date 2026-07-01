@@ -26,7 +26,6 @@ select {
   justify-content: center;
   width: 1000px;
   min-height: 600px;
-  border: 1px solid red;
   background-color: white;
   border-radius: 20px;
   overflow: hidden;
@@ -35,7 +34,6 @@ select {
 .inputData{
   width: 100%;
   min-height: 600px;
-  border: 1px solid yellow;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +42,6 @@ select {
 .showData{
   width: 100%;
   min-height: 600px;
-  border: 1px solid green;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,6 +56,11 @@ select {
 }
 
 @media(max-width:768px){
+  .wrapper {
+    height: auto;
+    min-height: 100vh;
+    align-items: flex-start;
+  }
   .wrapperBlock{
     flex-direction: column;
     margin: 0;

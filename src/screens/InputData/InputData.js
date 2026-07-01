@@ -49,15 +49,30 @@ const InputData = ({change}) => {
       </div>
 
       <div className='InputData-type'>
-        <button>Repayment</button>
-        <button>Interest Only</button>
+        <div className='InputData-type-title'>Mortgage Type</div>
+        <div className='InputData-type-selectBlock'>
+          <div className='InputData-type-selectBlock-rep'>
+            <div className='InputData-type-selectBlock-rep-circle'>
+              <div className='circleInactive'></div>
+            </div>
+            <div className='InputData-type-selectBlock-rep-text'>Repayment</div>
+          </div>
+          <div className='InputData-type-selectBlock-int'>
+            <div className='InputData-type-selectBlock-int-circle'>
+              <div className='circleInactive'></div>
+            </div>
+            <div className='InputData-type-selectBlock-int-text'>Interest Only</div>
+          </div>
+        </div>
       </div>
 
-      <div className='InputData-buttonBLock'>
-        <img src={calcImg}></img>
-        <div className='InputData-buttonBLock-text'>Calculate Repayments</div>
+      <div className='InputData-buttonBLock-wrapper'>
+        <div className='InputData-buttonBLock'>
+          <img src={calcImg}></img>
+          <div className='InputData-buttonBLock-text' onClick={changeFormShowData}>Calculate Repayments</div>
+        </div>
       </div>
-      {/*<button onClick={changeFormShowData}>Calculate Repaymants</button>*/}
+      {/*<button >Calculate Repaymants</button>*/}
     </div>
   )
 }
