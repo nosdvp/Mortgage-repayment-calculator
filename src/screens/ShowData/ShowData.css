@@ -80,6 +80,10 @@
     height: 30%;
 }
 
+.ShowData-resultWrapper-indoorBlock-totalRep-title{
+    margin-top: 20px;
+}
+
 .ShowData-resultWrapper-indoorBlock-monthlyRep-amount{
     color: #d9db2d;
     font-size: 45px;

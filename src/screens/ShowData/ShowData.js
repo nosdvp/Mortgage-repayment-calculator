@@ -2,7 +2,11 @@ import React from 'react'
 import imgCalc from '../../img/illustration-empty.svg'
 import './ShowData.css'
 
-const ShowData = ({form}) => {
+const ShowData = ({
+  form,
+  fullPay,
+  monthPay
+}) => {
   return (
     <div className='ShowData-wrapper'>
       {form === false ? (
@@ -24,11 +28,11 @@ const ShowData = ({form}) => {
               <div className='ShowData-resultWrapper-indoorBlock'>
                 <div className='ShowData-resultWrapper-indoorBlock-monthlyRep'>
                   <div className='ShowData-resultWrapper-indoorBlock-monthlyRep-title'>Your monthly perayments</div>
-                  <div className='ShowData-resultWrapper-indoorBlock-monthlyRep-amount'>£</div>
+                  <div className='ShowData-resultWrapper-indoorBlock-monthlyRep-amount'>£{monthPay.toLocaleString('en-GB', {minimumFractionDigits: 2, minimumFractionDigits: 2})}</div>
                 </div>
                 <div className='ShowData-resultWrapper-indoorBlock-totalRep'>
                   <div className='ShowData-resultWrapper-indoorBlock-totalRep-title'>Total you'll repay over the term</div>
-                  <div className='ShowData-resultWrapper-indoorBlock-totalRep-amount'>£</div>
+                  <div className='ShowData-resultWrapper-indoorBlock-totalRep-amount'>£{fullPay.toLocaleString('en-GB', {minimumFractionDigits: 2, maximumFractionDigits: 2,})}</div>
                 </div>
               </div>
             </div>
