@@ -1,3 +1,9 @@
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .InputData-wrapper{
     width: 85%;
     min-height: 520px;
@@ -65,10 +71,27 @@
     font-size: 18px;
 }
 
+.InputData-enterDataBlock-title-error,
+.InputData-addDataBlock-term-title-error,
+.InputData-addDataBlock-int-title-error,
+.InputData-type-title-error{
+    color: #ff26009d;
+    font-size: 18px;
+}
+
 .InputData-enterDataBlock-inputBlock{
     width: 100%;
     height: 50px;
     border: 1px solid #7a8489;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.InputData-enterDataBlock-inputBlock-error{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ff26009d;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -97,6 +120,19 @@
 .InputData-enterDataBlock-inputBlock:has(input:focus)
 .InputData-enterDataBlock-inputBlock-iconAmount {
     background-color: #dada32;
+}
+
+.InputData-enterDataBlock-inputBlock-iconAmount-icon-error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 50px;
+    background-color: #ff260052;
+    font-size: 20px;
+    color: #657d88;
+    font-weight: bold;
+    border-radius: 4px 0 0px 4px;
 }
 
 .InputData-enterDataBlock-inputBlock-input{
@@ -141,6 +177,16 @@
     align-items: center;
 }
 
+.InputData-addDataBlock-term-inputBlock-error,
+.InputData-addDataBlock-int-inputBlock-error{
+    width: 99%;
+    height: 50px;
+    border: 1px solid #ff26009d;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
 .InputData-addDataBlock-term-inputBlock-input{
     width: 70%;
     height: 45px;
@@ -157,6 +203,19 @@
     width: 90px;
     height: 50px;
     background-color: #e3f4fc;
+    color: #657d88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.InputData-addDataBlock-term-inputBlock-years-error{
+    width: 90px;
+    height: 50px;
+    background-color: #ff260052;
     color: #657d88;
     display: flex;
     align-items: center;
@@ -187,6 +246,19 @@
     width: 50px;
     height: 50px;
     background-color: #e3f4fc;
+    color: #657d88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.InputData-addDataBlock-int-inputBlock-percent-error{
+    width: 50px;
+    height: 50px;
+    background-color: #ff260052;
     color: #657d88;
     display: flex;
     align-items: center;
@@ -229,6 +301,24 @@
     justify-content: start;
 }
 
+.InputData-type-selectBlock-rep-error,
+.InputData-type-selectBlock-int-error{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ff26009d;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: #ff260052;
+}
+
+.InputData-type-selectBlock-rep:active,
+.InputData-type-selectBlock-int:active{
+    transition: 0.05s;
+    transform: scale(0.95);
+}
+
 .InputData-type-selectBlock-rep-circle,
 .InputData-type-selectBlock-int-circle{
     width: 50px;
@@ -243,6 +333,7 @@
     height: 20px;
     border-radius: 50%;
     border: 2px solid #7a8489;
+    cursor: pointer;
 }
 
 .circleActive{
@@ -251,6 +342,7 @@
     border-radius: 50%;
     border: 2px solid #dada32;
     position: relative;
+    cursor: pointer;
 }
 
 .circleActive::before{
@@ -271,6 +363,94 @@
     color: #152b3a;
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 90%;
+}
+
+/*Активная кнопка*/
+.InputData-type-active{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 160px;
+}
+
+.InputData-type-selectBlock-active{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.InputData-type-selectBlock-rep-active,
+.InputData-type-selectBlock-int-active{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #dada32;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: #fafae0;
+}
+
+.InputData-type-selectBlock-rep-active:active,
+.InputData-type-selectBlock-int-active:active{
+    transition: 0.05s;
+    transform: scale(0.95);
+}
+
+.InputData-type-selectBlock-rep-circle-active,
+.InputData-type-selectBlock-int-circle-active{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circleInactive-active{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #7a8489;
+}
+
+.circleActive-active{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #dada32;
+    position: relative;
+}
+
+.circleActive-active::before{
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #dada32;
+    background-color: #dada32;
+}
+
+.InputData-type-selectBlock-rep-text-active,
+.InputData-type-selectBlock-int-text-active{
+    color: #152b3a;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 90%;
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
 
 /*Кнопка расчета*/

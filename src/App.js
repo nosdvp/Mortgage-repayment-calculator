@@ -7,13 +7,18 @@ function App() {
 
   const [changeForm, setChangeForm] = useState(false)
 
-  const [mortgageAmount, setMortgageAmount] = useState(0) //сумма ипотеки
-  const [mortgageTerm, setMortgageTerm] = useState(0) //срок ипотеки в месяцах которые будете переведены из годов
-  const [interestRate, setInterestRate] = useState(0) //процентная ставка
+  const [mortgageAmount, setMortgageAmount] = useState('') //сумма ипотеки
+  const [mortgageTerm, setMortgageTerm] = useState('') //срок ипотеки в месяцах которые будете переведены из годов
+  const [interestRate, setInterestRate] = useState('') //процентная ставка
   const [mortgageType, setMortgageType] = useState('') //тип расчета кредита
 
   const [monthPay, setMonthPay] = useState(0)
   const [totalRepay, setTotalRepay] = useState(0)
+
+  const [errorAmount, setErrorAmount] = useState(false)
+  const [errorTerm, setErrorTerm] = useState(false)
+  const [errorInt, setErrorInt] = useState(false)
+  const [errorType, setErrorType] = useState(false)
 
   return (
     <div className="wrapper">
@@ -33,6 +38,16 @@ function App() {
 
             stateMonthPay={setMonthPay}
             stateTotalRepay={setTotalRepay}
+
+            stateErrorAmount={setErrorAmount}
+            stateErrorTerm={setErrorTerm}
+            stateErrorInt={setErrorInt}
+            stateErrorType={setErrorType}
+      
+            errorAmount={errorAmount}
+            errorTerm={errorTerm}
+            errorInt={errorInt}
+            errorType={errorType}
           />
         </div>
         <div className='showData'>

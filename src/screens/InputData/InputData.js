@@ -6,17 +6,29 @@ const InputData = ({
   change,
 
   mortAmount,
-  mortType,
   mortTerm,
   intRate,
+  mortType,
 
   stateMortAmount,
   stateMortTerm,
   stateIntRate,
   stateMortType,
+  stateError,
 
   stateMonthPay,
-  stateTotalRepay
+  stateTotalRepay,
+
+  stateErrorAmount,
+  stateErrorTerm,
+  stateErrorInt,
+  stateErrorType,
+
+  errorAmount,
+  errorTerm,
+  errorInt,
+  errorType,
+
 }) => {
 
   const changeFormShowData = () => {
@@ -25,32 +37,38 @@ const InputData = ({
     const getInt = (intRate / 12) / 100 // получаю процент в месяц
 
     if(mortType === 'Interest'){
-      const getMonthPay = mortAmount * getInt
+      const getmothAmount = Number(mortAmount)
+      console.log(getmothAmount)
+      const getMonthPay = getmothAmount * getInt
       const getFullInt = getMonthPay * getMonth
-      const getFullPay = getFullInt + mortAmount
+      const getFullPay = getFullInt + getmothAmount
       stateMonthPay(getMonthPay)
       stateTotalRepay(getFullPay)
-    }else if(mortType === 'Repayment'){
-      const getMonthInt = mortAmount * getInt // месячная комиссия
-      const getMonthAmount = mortAmount / getMonth
-      const getMonthPay = getMonthInt + getMonthAmount
-      const newMortAmount = mortAmount - getMonthAmount
-      stateMonthPay(newMortAmount)
+      change(true)
     }
-
-    change(true)
+    
+    mortAmount === '' ? stateErrorAmount(true) : stateErrorAmount(false)
+    mortTerm === '' ? stateErrorTerm(true) : stateErrorTerm(false)
+    intRate === '' ? stateErrorInt(true) : stateErrorInt(false)
+    mortType === '' ? stateErrorType(true) : stateErrorType(false)
+    
   }
 
   const clearAll = () => {
     change(false)
+    stateMortAmount('')
+    stateMortTerm('')
+    stateIntRate('')
+    stateMortType('')
   }
 
-  const chooseRepayment = () => {
-    stateMortType('Repayment')
+  const chooseMortType = (type) => {
+    stateMortType(type)
+    stateErrorType(false)
   }
 
-  const chooseInt = () => {
-    stateMortType('Interest')
+  const disable = () => {
+    
   }
 
   return (
@@ -61,70 +79,109 @@ const InputData = ({
       </div>
 
       <div className='InputData-enterDataBlock'>
-        <div className='InputData-enterDataBlock-title'>Mortgage Amount</div>
-        <div className='InputData-enterDataBlock-inputBlock'>
+        {errorAmount === false ? <div className= 'InputData-enterDataBlock-title'>Mortgage Amount</div> : <div className='InputData-enterDataBlock-title-error'>Enter Amount</div>}
+        <div className={errorAmount === false ? 'InputData-enterDataBlock-inputBlock' : 'InputData-enterDataBlock-inputBlock-error'}>
           <div className='InputData-enterDataBlock-inputBlock-iconAmount'>
-            <div className='InputData-enterDataBlock-inputBlock-iconAmount-icon'>£</div>
+            <div className={errorAmount === false ? 'InputData-enterDataBlock-inputBlock-iconAmount-icon' : 'InputData-enterDataBlock-inputBlock-iconAmount-icon-error'}>£</div>
           </div>
           <input 
             className='InputData-enterDataBlock-inputBlock-input' 
             placeholder='0.00'
             type='number'
-            onChange={(e) => stateMortAmount(Number(e.target.value))}  
+            onChange={(e) => {
+              stateMortAmount(e.target.value === '' ? '' : Number(e.target.value));
+              stateErrorAmount(false);
+            }}
+            value={mortAmount}
           ></input>
         </div>
       </div>
 
       <div className='InputData-addDataBlock'>
         <div className='InputData-addDataBlock-term'>
-          <div className='InputData-addDataBlock-term-title'>Mortgage Term</div>
-          <div className='InputData-addDataBlock-term-inputBlock'>
-            <input 
+          {errorTerm === false ? <div className='InputData-addDataBlock-term-title'>Mortgage Term</div> : <div className='InputData-addDataBlock-term-title-error'>Enter Period</div>}
+          <div className={errorTerm === false ? 'InputData-addDataBlock-term-inputBlock' : 'InputData-addDataBlock-term-inputBlock-error'}>
+            <input
               className='InputData-addDataBlock-term-inputBlock-input' 
               placeholder='0'
               type='number'
-              onChange={(e) => stateMortTerm(Number(e.target.value))}
+              onChange={(e) => {
+                stateMortTerm(e.target.value === '' ? '' : Number(e.target.value))
+                stateErrorTerm(false)
+              }}
+              value={mortTerm}
             ></input>
-            <div className='InputData-addDataBlock-term-inputBlock-years'>
+            <div className={errorTerm === false ? 'InputData-addDataBlock-term-inputBlock-years' : 'InputData-addDataBlock-term-inputBlock-years-error'}>
               <div>years</div>
             </div>
           </div>
         </div>
         <div className='InputData-addDataBlock-int'>
-          <div className='InputData-addDataBlock-int-title'>Interest Rate</div>
-          <div className='InputData-addDataBlock-int-inputBlock'>
-            <input 
+          {errorInt === false ? <div className='InputData-addDataBlock-int-title'>Interest Rate</div> : <div className='InputData-addDataBlock-int-title-error'>Enter Percent</div>}
+          <div className={errorInt === false ? 'InputData-addDataBlock-int-inputBlock' : 'InputData-addDataBlock-int-inputBlock-error'}>
+            <input
               className='InputData-addDataBlock-int-inputBlock-input' 
               placeholder='0'
               type='number'
-              onChange={(e) => stateIntRate(Number(e.target.value))}
+              onChange={(e) => {
+                stateIntRate(e.target.value === '' ? '' : Number(e.target.value))
+                stateErrorInt(false)
+              }}
+              value={intRate}
             ></input>
-            <div className='InputData-addDataBlock-int-inputBlock-percent'>%</div>
+            <div className={errorInt === false ? 'InputData-addDataBlock-int-inputBlock-percent' : 'InputData-addDataBlock-int-inputBlock-percent-error'}>%</div>
           </div>
         </div>
       </div>
 
       <div className='InputData-type'>
-        <div className='InputData-type-title'>Mortgage Type</div>
+        {errorType === false ? <div className='InputData-type-title'>Mortgage Type</div> : <div className='InputData-type-title-error'>Chooise Mortgage Type</div>}
         <div className='InputData-type-selectBlock'>
-          <div className='InputData-type-selectBlock-rep'>
+          
+          {mortType === 'Repayment' ? (
+            <div 
+              className='InputData-type-selectBlock-rep-active'
+              onClick={disable}  
+            >
+              <div className='InputData-type-selectBlock-rep-circle-active'>
+                <div className='circleActive'></div>
+              </div>
+              <div className='InputData-type-selectBlock-rep-text-active'>Repayment</div>
+            </div>
+
+          ) : (
+            <div 
+              className={errorType === false ? 'InputData-type-selectBlock-rep' : 'InputData-type-selectBlock-rep-error'}
+              onClick={() => chooseMortType('Repayment')}
+            >
             <div className='InputData-type-selectBlock-rep-circle'>
               <div className='circleInactive'></div>
             </div>
-            <div 
-              className='InputData-type-selectBlock-rep-text'
-              onClick={() => chooseRepayment()}
-            >Repayment</div>
+            <div className='InputData-type-selectBlock-rep-text'>Repayment</div>
           </div>
-          <div className='InputData-type-selectBlock-int'>
+          )}
+
+          {mortType === 'Interest' ? (
+            <div 
+              className='InputData-type-selectBlock-int-active' 
+              onClick={disable}
+            >
+              <div className='InputData-type-selectBlock-int-circle-active'>
+                <div className={'circleActive-active'}></div>
+              </div>
+              <div className='InputData-type-selectBlock-int-text-active'>Interest Only</div>
+            </div>
+          ) : (
+            <div 
+              className={errorType === false ? 'InputData-type-selectBlock-int' : 'InputData-type-selectBlock-int-error'} 
+              onClick={() => chooseMortType('Interest')}
+            >
             <div className='InputData-type-selectBlock-int-circle'>
               <div className='circleInactive'></div>
             </div>
-            <div 
-              className='InputData-type-selectBlock-int-text'
-              onClick={chooseInt}  
-            >Interest Only</div>
+            <div className='InputData-type-selectBlock-int-text'>Interest Only</div>
           </div>
+          )}
         </div>
       </div>
 
