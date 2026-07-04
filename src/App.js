@@ -7,10 +7,10 @@ function App() {
 
   const [changeForm, setChangeForm] = useState(false)
 
-  const [mortgageAmount, setMortgageAmount] = useState('') //сумма ипотеки
-  const [mortgageTerm, setMortgageTerm] = useState('') //срок ипотеки в месяцах которые будете переведены из годов
-  const [interestRate, setInterestRate] = useState('') //процентная ставка
-  const [mortgageType, setMortgageType] = useState('') //тип расчета кредита
+  const [mortgageAmount, setMortgageAmount] = useState('')
+  const [mortgageTerm, setMortgageTerm] = useState('')
+  const [interestRate, setInterestRate] = useState('')
+  const [mortgageType, setMortgageType] = useState('')
 
   const [monthPay, setMonthPay] = useState(0)
   const [totalRepay, setTotalRepay] = useState(0)

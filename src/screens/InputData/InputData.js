@@ -33,8 +33,8 @@ const InputData = ({
 
   const changeFormShowData = () => {
 
-    const getMonth = mortTerm * 12 // получаю кол-во месяцев
-    const getInt = (intRate / 12) / 100 // получаю процент в месяц
+    const getMonth = mortTerm * 12
+    const getInt = (intRate / 12) / 100
 
     if(mortType === 'Interest'){
       const getmothAmount = Number(mortAmount)
@@ -44,6 +44,13 @@ const InputData = ({
       const getFullPay = getFullInt + getmothAmount
       stateMonthPay(getMonthPay)
       stateTotalRepay(getFullPay)
+      change(true)
+    }else if(mortType === 'Repayment'){
+      const monthlyPayment = mortAmount * (getInt * Math.pow(1 + getInt, getMonth)) / (Math.pow(1 + getInt, getMonth) - 1);
+      const totalPayment = monthlyPayment * getMonth;
+      const totalInterest = totalPayment - mortAmount;
+      stateMonthPay(monthlyPayment)
+      stateTotalRepay(totalPayment)
       change(true)
     }
     

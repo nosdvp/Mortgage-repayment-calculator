@@ -28,7 +28,7 @@ const ShowData = ({
               <div className='ShowData-resultWrapper-indoorBlock'>
                 <div className='ShowData-resultWrapper-indoorBlock-monthlyRep'>
                   <div className='ShowData-resultWrapper-indoorBlock-monthlyRep-title'>Your monthly perayments</div>
-                  <div className='ShowData-resultWrapper-indoorBlock-monthlyRep-amount'>£{monthPay.toLocaleString('en-GB', {minimumFractionDigits: 2, minimumFractionDigits: 2})}</div>
+                  <div className='ShowData-resultWrapper-indoorBlock-monthlyRep-amount'>£{monthPay.toLocaleString('en-GB', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
                 </div>
                 <div className='ShowData-resultWrapper-indoorBlock-totalRep'>
                   <div className='ShowData-resultWrapper-indoorBlock-totalRep-title'>Total you'll repay over the term</div>
