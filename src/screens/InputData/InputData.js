@@ -48,7 +48,6 @@ const InputData = ({
     }else if(mortType === 'Repayment'){
       const monthlyPayment = mortAmount * (getInt * Math.pow(1 + getInt, getMonth)) / (Math.pow(1 + getInt, getMonth) - 1);
       const totalPayment = monthlyPayment * getMonth;
-      const totalInterest = totalPayment - mortAmount;
       stateMonthPay(monthlyPayment)
       stateTotalRepay(totalPayment)
       change(true)
